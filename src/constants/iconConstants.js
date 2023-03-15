@@ -1,0 +1,6 @@
+export const BACK = require('./../assets/icons/back.png')
+export const RIGHT_ARROW = require('./../assets/icons/right_arrow.png')
+export const WHATSAPP = require('./../assets/icons/whatsapp.png')
+export const GOOGLE = require('./../assets/icons/google.png')
+export const LOGOFF = require('./../assets/icons/logoff.png')
+export const DELETE = require('./../assets/icons/delete.png')
