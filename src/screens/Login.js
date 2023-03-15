@@ -51,7 +51,7 @@ const Login = props => {
           <View style={{flex: 1}}>
             <View style={{flex: 0.15}} />
             <View style={{flex: 0.85, paddingHorizontal: 20}}>
-              <Text style={styles.title}>{'Get Started'}</Text>
+              <Text style={styles.title}>{'Get started'}</Text>
               <View
                 style={{
                   backgroundColor: '#fff',
@@ -115,14 +115,14 @@ const Login = props => {
                 }}>
                 <TouchableOpacity activeOpacity={0.8} style={styles.whatView}>
                   <Image source={icons.WHATSAPP} style={styles.socialImg} />
-                  <Text style={styles.whatTxt}>Whatsapp</Text>
+                  <Text style={styles.whatTxt}>WhatsApp</Text>
                 </TouchableOpacity>
                 <TouchableOpacity activeOpacity={0.8} style={styles.gleView}>
                   <Image source={icons.GOOGLE} style={styles.socialImg} />
                   <Text style={styles.gleTxt}>Google</Text>
                 </TouchableOpacity>
               </View>
-              <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'row', marginTop:20}}>
                 <Text style={styles.cntTxt}>
                   {'By Continuing, you agree to our '}
                 </Text>

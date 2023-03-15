@@ -8,7 +8,8 @@ import {
   Image,
   FlatList,
   LayoutAnimation,
-  SafeAreaView, StatusBar
+  SafeAreaView,
+  StatusBar,
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {bindActionCreators} from 'redux';
@@ -50,7 +51,7 @@ const List = props => {
             placeholderTextColor={'grey'}
             caretHidden={false}
             value={item.value}
-            style={{paddingHorizontal: 10, color:'#252525', fontSize:14}}
+            style={{paddingHorizontal: 10, color: '#252525', fontSize: 14}}
             keyboardType={'email-address'}
             placeholder="Mobile/Email"
           />
@@ -105,49 +106,49 @@ const List = props => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
-    <KeyboardAwareScrollView
-      keyboardShouldPersistTaps={'never'}
-      scrollEnabled={false}
-      contentContainerStyle={{flex: 1}}>
-      <View style={styles.container}>
-        <View style={{flex: 1}}>
-          <View
-            style={{
-              flex: 0.15,
-              paddingHorizontal: 20,
-              alignItems: 'flex-end',
-            }}>
-            <TouchableOpacity
-              onPress={() => {
-                props.navigation.reset({
-                  index: 0,
-                  routes: [{name: 'Login'}],
-                });
-              }}
-              style={{paddingVertical: 20, flexDirection: 'row'}}>
-              <Text style={{color: '#252525', paddingRight: 10}}>
-                {'Logoff'}
-              </Text>
-              <Image source={icons.LOGOFF} style={[styles.socialImg]} />
-            </TouchableOpacity>
-          </View>
-          <View style={{flex: 0.85, paddingHorizontal: 20}}>
-            <View style={{paddingBottom: 20}}>
-              <Text style={styles.title}>{'Mobile Number List'}</Text>
+      <KeyboardAwareScrollView
+        keyboardShouldPersistTaps={'never'}
+        scrollEnabled={false}
+        contentContainerStyle={{flex: 1}}>
+        <View style={styles.container}>
+          <View style={{flex: 1}}>
+            <View
+              style={{
+                flex: 0.15,
+                paddingHorizontal: 20,
+                alignItems: 'flex-end',
+              }}>
+              <TouchableOpacity
+                onPress={() => {
+                  props.navigation.reset({
+                    index: 0,
+                    routes: [{name: 'Login'}],
+                  });
+                }}
+                style={{paddingVertical: 20, flexDirection: 'row'}}>
+                <Text style={{color: '#252525', paddingRight: 10}}>
+                  {'Logoff'}
+                </Text>
+                <Image source={icons.LOGOFF} style={[styles.socialImg]} />
+              </TouchableOpacity>
             </View>
-            {/* Changes needed in the Flatlist to render millions of users can be handled by using onLoadmore while wokring with api's, 
+            <View style={{flex: 0.85, paddingHorizontal: 20}}>
+              <View style={{paddingBottom: 20}}>
+                <Text style={styles.title}>{'Mobile/Email List'}</Text>
+              </View>
+              {/* Changes needed in the Flatlist to render millions of users can be handled by using onLoadmore while wokring with api's, 
             For local data below functionaliy will fetch records smoothly */}
-            <FlatList
-              removeClippedSubviews={false}
-              data={props.login.usersList}
-              showsVerticalScrollIndicator={false}
-              renderItem={renderUsers}
-              ListEmptyComponent={emptyComponent}
-            />
+              <FlatList
+                removeClippedSubviews={false}
+                data={props.login.usersList}
+                showsVerticalScrollIndicator={false}
+                renderItem={renderUsers}
+                ListEmptyComponent={emptyComponent}
+              />
+            </View>
           </View>
         </View>
-      </View>
-    </KeyboardAwareScrollView>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 };
