@@ -12,7 +12,7 @@ const Splash = props => {
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
       <View style={styles.container}>
-        <Text style={{fontWeight: 'bold', fontSize: 20}}>{'Welcome'}</Text>
+        <Text style={{fontWeight: 'bold', color:"#252525" fontSize: 20}}>{'Welcome'}</Text>
       </View>
     </SafeAreaView>
   );
