@@ -85,10 +85,11 @@ const OTP = props => {
                   }}
                   autoCorrect={false}
                   numberOfLines={1}
+                  placeholderTextColor={'grey'}
                   maxLength={4}
                   inputMode={'numeric'}
                   caretHidden={false}
-                  style={{paddingHorizontal: 10}}
+                  style={{paddingHorizontal: 10, color:'#252525', fontSize:14}}
                   keyboardType={'number-pad'}
                   placeholder="OTP"
                 />

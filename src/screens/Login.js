@@ -71,9 +71,14 @@ const Login = props => {
                   }}
                   autoCorrect={false}
                   numberOfLines={1}
+                  placeholderTextColor={'grey'}
                   inputMode={'email'}
                   caretHidden={false}
-                  style={{paddingHorizontal: 10}}
+                  style={{
+                    paddingHorizontal: 10,
+                    color: '#252525',
+                    fontSize: 14,
+                  }}
                   keyboardType={'email-address'}
                   placeholder="Mobile/Email"
                 />
@@ -124,7 +129,7 @@ const Login = props => {
                 <TouchableOpacity>
                   <Text style={styles.termTxt}>{'terms'}</Text>
                 </TouchableOpacity>
-                <Text>{' and '}</Text>
+                <Text style={styles.cntTxt}>{' and '}</Text>
                 <TouchableOpacity>
                   <Text style={styles.termTxt}>{'policies'}</Text>
                 </TouchableOpacity>

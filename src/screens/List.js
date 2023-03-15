@@ -47,9 +47,10 @@ const List = props => {
             autoCorrect={false}
             numberOfLines={1}
             inputMode={'email'}
+            placeholderTextColor={'grey'}
             caretHidden={false}
             value={item.value}
-            style={{paddingHorizontal: 10}}
+            style={{paddingHorizontal: 10, color:'#252525', fontSize:14}}
             keyboardType={'email-address'}
             placeholder="Mobile/Email"
           />
