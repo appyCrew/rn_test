@@ -6,6 +6,8 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+  SafeAreaView,
+  StatusBar,
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import * as icons from './../constants/iconConstants';
@@ -34,73 +36,76 @@ const OTP = props => {
   };
 
   return (
-    <KeyboardAwareScrollView
-      keyboardDismissMode="interactive"
-      keyboardShouldPersistTaps={'handled'}
-      contentContainerStyle={{flex: 1}}>
-      <View style={styles.container}>
-        <View style={{flex: 1}}>
-          <View
-            style={{
-              flex: 0.15,
-              justifyContent: 'center',
-              paddingHorizontal: 20,
-            }}>
-            <TouchableOpacity
-              onPress={() => {
-                props.navigation.goBack();
-              }}
-              style={{paddingVertical: 10}}>
-              <Image source={icons.BACK} style={[styles.socialImg]} />
-            </TouchableOpacity>
-          </View>
-          <View style={{flex: 0.85, paddingHorizontal: 20}}>
-            <View style={{paddingBottom: 20}}>
-              <Text style={styles.title}>{'Enter OTP'}</Text>
-              <Text style={styles.cntTxt}>
-                {'We have sent a One Time Password (OTP) to '}
-                {props.route.params.value}
-              </Text>
-            </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
+      <KeyboardAwareScrollView
+        keyboardDismissMode="interactive"
+        keyboardShouldPersistTaps={'handled'}
+        contentContainerStyle={{flex: 1}}>
+        <View style={styles.container}>
+          <View style={{flex: 1}}>
             <View
               style={{
-                backgroundColor: '#fff',
-                borderColor: disabled ? 'red' : 'grey',
-                borderWidth: 0.3,
-                borderRadius: 5,
-                marginVertical: 10,
+                flex: 0.15,
+                justifyContent: 'center',
+                paddingHorizontal: 20,
               }}>
-              <TextInput
-                value={value}
-                onChangeText={onChangeTxt}
-                onFocus={() => {
-                  setdisabled(false);
+              <TouchableOpacity
+                onPress={() => {
+                  props.navigation.goBack();
                 }}
-                onSubmitEditing={() => {
-                  onChangeTxt(value);
-                }}
-                autoCorrect={false}
-                numberOfLines={1}
-                maxLength={4}
-                inputMode={'numeric'}
-                caretHidden={false}
-                style={{paddingHorizontal: 10}}
-                keyboardType={'number-pad'}
-                placeholder="OTP"
-              />
+                style={{paddingVertical: 10}}>
+                <Image source={icons.BACK} style={[styles.socialImg]} />
+              </TouchableOpacity>
             </View>
-            {disabled ? (
-              <Text style={{color: 'red', fontSize: 12}}>
-                {'Enter a valid OTP'}
-              </Text>
-            ) : null}
-            <View style={{flexDirection: 'row', marginVertical: 10}}>
-              <Text style={styles.cntTxt}>{'Resend OTP in 00:15'}</Text>
+            <View style={{flex: 0.85, paddingHorizontal: 20}}>
+              <View style={{paddingBottom: 20}}>
+                <Text style={styles.title}>{'Enter OTP'}</Text>
+                <Text style={styles.cntTxt}>
+                  {'We have sent a One Time Password (OTP) to '}
+                  {props.route.params.value}
+                </Text>
+              </View>
+              <View
+                style={{
+                  backgroundColor: '#fff',
+                  borderColor: disabled ? 'red' : 'grey',
+                  borderWidth: 0.3,
+                  borderRadius: 5,
+                  marginVertical: 10,
+                }}>
+                <TextInput
+                  value={value}
+                  onChangeText={onChangeTxt}
+                  onFocus={() => {
+                    setdisabled(false);
+                  }}
+                  onSubmitEditing={() => {
+                    onChangeTxt(value);
+                  }}
+                  autoCorrect={false}
+                  numberOfLines={1}
+                  maxLength={4}
+                  inputMode={'numeric'}
+                  caretHidden={false}
+                  style={{paddingHorizontal: 10}}
+                  keyboardType={'number-pad'}
+                  placeholder="OTP"
+                />
+              </View>
+              {disabled ? (
+                <Text style={{color: 'red', fontSize: 12}}>
+                  {'Enter a valid OTP'}
+                </Text>
+              ) : null}
+              <View style={{flexDirection: 'row', marginVertical: 10}}>
+                <Text style={styles.cntTxt}>{'Resend OTP in 00:15'}</Text>
+              </View>
             </View>
           </View>
         </View>
-      </View>
-    </KeyboardAwareScrollView>
+      </KeyboardAwareScrollView>
+    </SafeAreaView>
   );
 };
 

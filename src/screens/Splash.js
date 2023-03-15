@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
 
 const Splash = props => {
   useEffect(() => {
@@ -9,9 +9,12 @@ const Splash = props => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text style={{fontWeight: 'bold', fontSize: 20}}>{'Welcome'}</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
+      <View style={styles.container}>
+        <Text style={{fontWeight: 'bold', fontSize: 20}}>{'Welcome'}</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 

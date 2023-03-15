@@ -8,6 +8,7 @@ import {
   Image,
   FlatList,
   LayoutAnimation,
+  SafeAreaView, StatusBar
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {bindActionCreators} from 'redux';
@@ -101,6 +102,8 @@ const List = props => {
   };
 
   return (
+    <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
     <KeyboardAwareScrollView
       keyboardShouldPersistTaps={'never'}
       scrollEnabled={false}
@@ -144,6 +147,7 @@ const List = props => {
         </View>
       </View>
     </KeyboardAwareScrollView>
+    </SafeAreaView>
   );
 };
 

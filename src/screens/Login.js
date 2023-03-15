@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   Keyboard,
   Image,
+  SafeAreaView,
+  StatusBar,
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {addUser} from '../services/addUserService';
@@ -39,93 +41,99 @@ const Login = props => {
   };
 
   return (
-    <KeyboardAwareScrollView
-      keyboardDismissMode="interactive"
-      keyboardShouldPersistTaps={'handled'}
-      contentContainerStyle={{flex: 1}}>
-      <View style={styles.container}>
-        <View style={{flex: 1}}>
-          <View style={{flex: 0.15}} />
-          <View style={{flex: 0.85, paddingHorizontal: 20}}>
-            <Text style={styles.title}>{'Get Started'}</Text>
-            <View
-              style={{
-                backgroundColor: '#fff',
-                borderColor: disabled ? 'red' : 'grey',
-                borderWidth: 0.3,
-                borderRadius: 5,
-                marginVertical: 10,
-              }}>
-              <TextInput
-                value={value}
-                onChangeText={txt => {
-                  setValue(txt);
-                  setdisabled(false);
-                }}
-                onFocus={() => {
-                  setdisabled(false);
-                }}
-                autoCorrect={false}
-                numberOfLines={1}
-                inputMode={'email'}
-                caretHidden={false}
-                style={{paddingHorizontal: 10}}
-                keyboardType={'email-address'}
-                placeholder="Mobile/Email"
-              />
-            </View>
-            {disabled ? (
-              <Text style={{color: 'red', fontSize: 12}}>
-                {'Enter a valid input'}
-              </Text>
-            ) : null}
+    <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
+      <KeyboardAwareScrollView
+        keyboardShouldPersistTaps={'handled'}
+        scrollEnabled={false}
+        contentContainerStyle={{flex: 1}}>
+        <View style={styles.container}>
+          <View style={{flex: 1}}>
+            <View style={{flex: 0.15}} />
+            <View style={{flex: 0.85, paddingHorizontal: 20}}>
+              <Text style={styles.title}>{'Get Started'}</Text>
+              <View
+                style={{
+                  backgroundColor: '#fff',
+                  borderColor: disabled ? 'red' : 'grey',
+                  borderWidth: 0.3,
+                  borderRadius: 5,
+                  marginVertical: 10,
+                }}>
+                <TextInput
+                  value={value}
+                  onChangeText={txt => {
+                    setValue(txt);
+                    setdisabled(false);
+                  }}
+                  onFocus={() => {
+                    setdisabled(false);
+                  }}
+                  autoCorrect={false}
+                  numberOfLines={1}
+                  inputMode={'email'}
+                  caretHidden={false}
+                  style={{paddingHorizontal: 10}}
+                  keyboardType={'email-address'}
+                  placeholder="Mobile/Email"
+                />
+              </View>
+              {disabled ? (
+                <Text style={{color: 'red', fontSize: 12}}>
+                  {'Enter a valid input'}
+                </Text>
+              ) : null}
 
-            <TouchableOpacity
-              onPress={() => onContinue()}
-              activeOpacity={0.8}
-              disabled={disabled}
-              style={[styles.button, {opacity: disabled ? 0.4 : 1}]}>
-              <Text style={styles.btnTxt}>{'Continue'}</Text>
-              <Image
-                source={icons.RIGHT_ARROW}
-                style={[styles.socialImg, {tintColor: '#fff', marginLeft: 10}]}
-              />
-            </TouchableOpacity>
-            <View style={styles.cntView}>
-              <Text style={styles.cntTxt}>{'Or Continue with'}</Text>
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                paddingVertical: 5,
-                justifyContent: 'space-between',
-                paddingBottom: 25,
-              }}>
-              <TouchableOpacity activeOpacity={0.8} style={styles.whatView}>
-                <Image source={icons.WHATSAPP} style={styles.socialImg} />
-                <Text style={styles.whatTxt}>Whatsapp</Text>
+              <TouchableOpacity
+                onPress={() => onContinue()}
+                activeOpacity={0.8}
+                disabled={disabled}
+                style={[styles.button, {opacity: disabled ? 0.4 : 1}]}>
+                <Text style={styles.btnTxt}>{'Continue'}</Text>
+                <Image
+                  source={icons.RIGHT_ARROW}
+                  style={[
+                    styles.socialImg,
+                    {tintColor: '#fff', marginLeft: 10},
+                  ]}
+                />
               </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.8} style={styles.gleView}>
-                <Image source={icons.GOOGLE} style={styles.socialImg} />
-                <Text style={styles.gleTxt}>Google</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={{flexDirection: 'row'}}>
-              <Text style={styles.cntTxt}>
-                {'By Continuing, you agree to our '}
-              </Text>
-              <TouchableOpacity>
-                <Text style={styles.termTxt}>{'terms'}</Text>
-              </TouchableOpacity>
-              <Text>{' and '}</Text>
-              <TouchableOpacity>
-                <Text style={styles.termTxt}>{'policies'}</Text>
-              </TouchableOpacity>
+              <View style={styles.cntView}>
+                <Text style={styles.cntTxt}>{'Or Continue with'}</Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  paddingVertical: 5,
+                  justifyContent: 'space-between',
+                  paddingBottom: 25,
+                }}>
+                <TouchableOpacity activeOpacity={0.8} style={styles.whatView}>
+                  <Image source={icons.WHATSAPP} style={styles.socialImg} />
+                  <Text style={styles.whatTxt}>Whatsapp</Text>
+                </TouchableOpacity>
+                <TouchableOpacity activeOpacity={0.8} style={styles.gleView}>
+                  <Image source={icons.GOOGLE} style={styles.socialImg} />
+                  <Text style={styles.gleTxt}>Google</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={{flexDirection: 'row'}}>
+                <Text style={styles.cntTxt}>
+                  {'By Continuing, you agree to our '}
+                </Text>
+                <TouchableOpacity>
+                  <Text style={styles.termTxt}>{'terms'}</Text>
+                </TouchableOpacity>
+                <Text>{' and '}</Text>
+                <TouchableOpacity>
+                  <Text style={styles.termTxt}>{'policies'}</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </View>
-      </View>
-    </KeyboardAwareScrollView>
+      </KeyboardAwareScrollView>
+    </SafeAreaView>
   );
 };
 
